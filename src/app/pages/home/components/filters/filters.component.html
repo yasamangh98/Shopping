@@ -1,0 +1,12 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>Categories</mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-selection-list [multiple]="false">
+        <ul>
+            <li *ngFor="let category of categories" [value]="category" style="margin-top: 20px; margin-bottom: 10px; hover:">
+                <button (click)="onShowCategory(category)">{{category}}</button>
+            </li>
+        </ul>
+    </mat-selection-list>
+</mat-expansion-panel>

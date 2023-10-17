@@ -1,0 +1,22 @@
+<!-- component is used to create a layout container that can have one or more drawers (side panels) within it. -->
+<!-- The [autosize] property, when set to true, typically means that the mat-drawer-container will automatically adjust the size of its drawers based on the content within them.  -->
+<mat-drawer-container [attr.autosize]="true" class="min-h-full max-w-7xl mx-auto border-x ">
+
+
+    <!-- mat-drawer vase sakhtane sidebar estefade mikonim -->
+    <mat-drawer mode="side" opened class="p-6">
+        <app-filters (showcategory)="onShowCategory($event)"></app-filters>
+    </mat-drawer>
+    <mat-drawer-container class="p-6">
+        <app-products-header (ColumnCountChange)="onColumnsCountChange($event)" (itemsCountChange)="onitemsCountChange($event)" (sortChange)="onSortChange($event)"></app-products-header>
+        <mat-grid-list gutterSize="16" [cols]="cols" [rowHeight]="rowHeight">
+            <mat-grid-tile *ngFor="let product of products">
+                <app-product-box [product]="product" class="w-full" [fullWidthMode]="cols===1" (AddToCart)="onAddToCart($event)"></app-product-box>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+
+    </mat-drawer-container>
+
+
+</mat-drawer-container>
